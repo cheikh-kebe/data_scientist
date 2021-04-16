@@ -37,12 +37,26 @@ print ">"
 puts""
 puts "La voila la position de votre recherché du FBI : #{@journalist.index("@epenser")}}"
 
-puts "Sors-moi une répartition des handle par taille de ces derniers ( Choisi un nombre en 1 et 32!!!) "
-print ">"
-puts""
-num = gets.chomp.to_i
-num < 33
-puts "Et voila pour #{num} de caractères il y'a : #{@journalist.count {|x| x.length ==  num + 1}} handle!!"
+def rep
+    puts "Sors-moi une répartition des handle par taille de ces derniers ( Choisi un nombre en 1 et 32!!!) "
+    print ">"
+    puts""
+    num = gets.chomp.to_i
+    num < 33
+    if num > 33
+        puts "veuillez recommencer"
+        rep
+    else 
+     puts "Et voila pour #{num} de caractères il y'a : #{@journalist.count {|x| x.length ==  num + 1}} handle!!"
+    end
+end
+def other 
+    puts "Une autre recherche?"
+    rep
+end
+def go 
+    rep
+    other
+end
 
-
-
+go
