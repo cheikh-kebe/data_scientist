@@ -4,34 +4,42 @@
 
 puts "Combien de handle ?"
 print ">"
+puts""
 puts " Il y'a  #{@journalist.length} handles dans ce array"#defini la longueur 
 
 puts "Quel est le handle le plus court de cette liste ?"
 print ">"
+puts""
 puts " le handle le plus court de la liste est: #{@journalist.min_by { |x| x.length }}"#défini la valeur min sur la base des caractères
 
 puts "Combien y-a-t'il de handle contenant 5 caractères "
 print ">"
+puts""
 puts @journalist.count {|x| x.length ==  6}#effectue un comptage des elements de la liste avec x variable longueur egale 6
 
 puts " Combien commencent par une majuscule? "
+puts""
 puts " Voici avec vous le nombre de grands gaillards : #{@journalist.count {|e| e =~ /^@[A-Z]/}}"#operateur permettant dexclure le @ et cherchant les valeurs avec majuscules
 
 puts "Trie la liste de handle par ordre alphabétique."
 print ">"
+puts""
 puts "L'alphabet c'est la base hein ca ne s'oublie pas :" 
 puts "#{@journalist.sort { |a, b| a <=> b }}"# organise la liste de sort que les éléments soient dans l'ordre alphabétique 
 
 puts "Trie la liste de handle par taille des handle !"
 print ">"
+puts""
 puts @journalist.sort_by{ |x| x.length}
 
 puts "Quelle est la position dans l'array de la personne @epenser "
 print ">"
+puts""
 puts "La voila la position de votre recherché du FBI : #{@journalist.index("@epenser")}}"
 
 puts "Sors-moi une répartition des handle par taille de ces derniers ( Choisi un nombre en 1 et 32!!!) "
 print ">"
+puts""
 num = gets.chomp.to_i
 num < 33
 puts "Et voila pour #{num} de caractères il y'a : #{@journalist.count {|x| x.length ==  num + 1}} handle!!"
